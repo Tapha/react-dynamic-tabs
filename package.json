@@ -1,5 +1,5 @@
 {
-  "name": "react-dynamic-tabs",
+  "name": "react-dynamic-tabs-lib",
   "version": "1.0.0",
   "description": "A React component to easily render tabs dynamically",
   "main": "dist/index.js",
@@ -7,6 +7,7 @@
     "test": "jest --passWithNoTests",
     "build": "node_modules/.bin/webpack --mode production",
     "start": "node_modules/.bin/webpack serve --mode development",
+    "publish": "npm publish --access public",
     "prepublish": "npm run build",
     "watch": "node_modules/.bin/webpack --mode development --watch",
     "link": "npm link"

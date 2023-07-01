@@ -1,8 +1,8 @@
 # A React component to easily render tabs dynamically
 
-[![Latest Version on NPM](https://img.shields.io/npm/v/react-dynamic-tabs.svg?style=flat-square)](https://npmjs.com/package/react-dynamic-tabs)
+[![Latest Version on NPM](https://img.shields.io/npm/v/react-dynamic-tabs-lib.svg?style=flat-square)](https://npmjs.com/package/react-dynamic-tabs-lib)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![npm](https://img.shields.io/npm/dt/react-dynamic-tabs.svg?style=flat-square)](https://www.npmjs.com/package/react-dynamic-tabs)
+[![npm](https://img.shields.io/npm/dt/react-dynamic-tabs-lib.svg?style=flat-square)](https://www.npmjs.com/package/react-dynamic-tabs-lib)
 
 The package contains a [React](https://reactjs.org/) component to easily display tabs, dynamically.
 
@@ -20,7 +20,7 @@ It is based on its Vue 3 counterpart, [vue3-dynamic-tabs](https://www.npmjs.com/
 
 ```jsx
 import React from "react";
-import { DynamicTabSettings, DynamicTab, DynamicTabContent, DynamicTabProvider } from "react-dynamic-tabs";
+import { DynamicTabSettings, DynamicTab, DynamicTabContent, DynamicTabProvider } from "react-dynamic-tabs-lib";
 
 const App: React.FC = () => {
   return (
@@ -54,13 +54,13 @@ The rendered output adheres to [the ARIA specification](http://heydonworks.com/p
 You can install the package via yarn:
 
 ```bash
-yarn add react-dynamic-tabs
+yarn add react-dynamic-tabs-lib
 ```
 
 or npm:
 
 ```bash
-npm install react-dynamic-tabs --save
+npm install react-dynamic-tabs-lib --save
 ```
 
 ## Usage
@@ -68,7 +68,7 @@ npm install react-dynamic-tabs --save
 First, import the required components from the package:
 
 ```jsx
-import { DynamicTabSettings, DynamicTab, DynamicTabContent, DynamicTabProvider } from "react-dynamic-tabs";
+import { DynamicTabSettings, DynamicTab, DynamicTabContent, DynamicTabProvider } from "react-dynamic-tabs-lib";
 ```
 
 Next, use the components in your JSX:
