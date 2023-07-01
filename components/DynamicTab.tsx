@@ -4,6 +4,7 @@ import { useDynamicTabContext } from "../store/dynamicTabs";
 interface DynamicTabProps {
   tag?: keyof JSX.IntrinsicElements;
   tabName: string;
+  className?: string;
 }
 
 function generateRandomString(initialString: string, length: number) {
@@ -17,7 +18,11 @@ function generateRandomString(initialString: string, length: number) {
   return result;
 }
 
-const DynamicTab: React.FC<DynamicTabProps> = ({ tag = "a", tabName }) => {
+const DynamicTab: React.FC<DynamicTabProps> = ({
+  tag = "a",
+  tabName,
+  className = "",
+}) => {
   const [state, dispatch] = useDynamicTabContext();
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const DynamicTab: React.FC<DynamicTabProps> = ({ tag = "a", tabName }) => {
   return React.createElement(
     tag,
     {
-      className: isActive ? "active" : "",
+      className: `${isActive ? "active" : ""} ${className}`,
       onClick: handleClick,
     },
     tabName
