@@ -8,6 +8,7 @@
     "build": "node_modules/.bin/webpack --mode production",
     "start": "node_modules/.bin/webpack serve --mode development",
     "prepublish": "npm run build",
+    "watch": "node_modules/.bin/webpack --mode development --watch",
     "link": "npm link"
   },
   "keywords": [
