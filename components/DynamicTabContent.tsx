@@ -1,5 +1,5 @@
 import React from "react";
-import { useDynamicTabContext } from "./store/dynamicTabs";
+import { useDynamicTabContext } from "../store/dynamicTabs";
 
 interface DynamicTabContentProps {
   tabName: string;

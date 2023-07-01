@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDynamicTabContext } from "./store/dynamicTabs";
+import { useDynamicTabContext } from "../store/dynamicTabs";
 
 interface DynamicTabProps {
   tag?: keyof JSX.IntrinsicElements;

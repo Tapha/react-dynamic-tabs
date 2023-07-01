@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useDynamicTabContext } from "./store/dynamicTabs";
-import expiringStorage from "./store/expiringStorage";
+import { useDynamicTabContext } from "../store/dynamicTabs";
+import expiringStorage from "../store/expiringStorage";
 
 interface Options {
   useUrlFragment: boolean;

@@ -4,9 +4,17 @@
   "description": "A React component to easily render tabs dynamically",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "node_modules/.bin/webpack --mode production",
+    "start": "node_modules/.bin/webpack serve --mode development",
+    "prepublish": "npm run build",
+    "link": "npm link"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "tabs",
+    "dynamic"
+  ],
   "author": "Tapha",
   "license": "ISC",
   "dependencies": {
