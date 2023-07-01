@@ -18,6 +18,8 @@ jobs:
       - run: npm i
       - run: npm test
       - run: npm run build
+      - name: npm login
+        run: echo "${{ secrets.NPM_TOKEN }}" | npm login --registry=https://registry.npmjs.org --scope=@my-scope --always-auth --stdin
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
