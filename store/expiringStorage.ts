@@ -1,13 +1,18 @@
+interface StorageItem {
+  value: any;
+  expiry: number;
+}
+
 const expiringStorage = {
-  set(key, value, time) {
+  set(key: string, value: any, time: number): void {
     const now = new Date();
-    const item = {
+    const item: StorageItem = {
       value: value,
       expiry: now.getTime() + time * 60 * 1000, // time is in minutes
     };
     localStorage.setItem(key, JSON.stringify(item));
   },
-  get(key) {
+  get(key: string): any {
     const itemStr = localStorage.getItem(key);
 
     // if the item doesn't exist, return null
@@ -15,7 +20,7 @@ const expiringStorage = {
       return null;
     }
 
-    const item = JSON.parse(itemStr);
+    const item: StorageItem = JSON.parse(itemStr);
     const now = new Date();
 
     // compare the expiry time of the item with the current time

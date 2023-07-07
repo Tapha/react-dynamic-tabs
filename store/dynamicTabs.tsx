@@ -24,7 +24,10 @@ const initialState: State = {
   activeTabHash: "",
   lastActiveTabHash: "",
   cacheLifetime: 5,
-  storageKey: `react-dynamic-tabs.cache.${window.location.host}${window.location.pathname}`,
+  storageKey:
+    typeof window !== "undefined"
+      ? `react-dynamic-tabs.cache.${window.location.host}${window.location.pathname}`
+      : "react-dynamic-tabs.cache",
   tabs: [],
 };
 
@@ -47,8 +50,10 @@ function reducer(state: State, action: Action): State {
     case "UPDATE_TAB":
       return {
         ...state,
-        tabs: state.tabs.map(tab =>
-          tab.computedId === action.payload.computedId ? action.payload.data : tab
+        tabs: state.tabs.map((tab) =>
+          tab.computedId === action.payload.computedId
+            ? action.payload.data
+            : tab
         ),
       };
     case "SELECT_TAB":
@@ -56,7 +61,7 @@ function reducer(state: State, action: Action): State {
         ...state,
         activeTabHash: action.payload,
         lastActiveTabHash: action.payload,
-        tabs: state.tabs.map(tab => ({
+        tabs: state.tabs.map((tab) => ({
           ...tab,
           isActive: tab.hash === action.payload,
         })),
@@ -64,7 +69,7 @@ function reducer(state: State, action: Action): State {
     case "DELETE_TAB":
       return {
         ...state,
-        tabs: state.tabs.filter(tab => tab.computedId !== action.payload),
+        tabs: state.tabs.filter((tab) => tab.computedId !== action.payload),
       };
     default:
       return state;
@@ -80,7 +85,9 @@ interface DynamicTabProviderProps {
   children: ReactNode;
 }
 
-export const DynamicTabProvider: React.FC<DynamicTabProviderProps> = ({ children }) => {
+const DynamicTabProvider: React.FC<DynamicTabProviderProps> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <DynamicTabContext.Provider value={[state, dispatch]}>
@@ -90,3 +97,5 @@ export const DynamicTabProvider: React.FC<DynamicTabProviderProps> = ({ children
 };
 
 export const useDynamicTabContext = () => useContext(DynamicTabContext);
+
+export default DynamicTabProvider;
